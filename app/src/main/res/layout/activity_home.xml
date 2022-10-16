@@ -31,9 +31,9 @@
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
                     android:layout_weight="0.1"
                     android:paddingVertical="10dp"
-                    android:layout_marginHorizontal="8dp"
                     android:src="@drawable/ic_round_settings_24" />
 
                 <TextView
@@ -54,9 +54,9 @@
                 <ImageView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="8dp"
                     android:layout_weight="0.1"
                     android:paddingVertical="10dp"
-                    android:layout_marginHorizontal="8dp"
                     android:src="@drawable/ic_round_settings_24" />
 
             </LinearLayout>
@@ -80,11 +80,11 @@
                 android:id="@+id/topics_scrollview"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:background="@color/white"
+                android:orientation="horizontal"
+                android:paddingVertical="7dp"
                 android:scrollbars="none"
                 android:visibility="gone"
-                android:paddingVertical="7dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/topics_textview">
@@ -92,21 +92,21 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/topics_constraintlayout"
                     android:layout_width="match_parent"
-                    android:paddingVertical="7dp"
+                    android:layout_height="match_parent"
                     android:background="@color/white"
-                    android:layout_height="match_parent">
+                    android:paddingVertical="7dp">
 
                     <androidx.recyclerview.widget.RecyclerView
                         android:id="@+id/topics_recyclerview"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:orientation="horizontal"
                         android:background="@color/white"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
+                        android:orientation="horizontal"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
                         tools:itemCount="1"
-                        tools:listitem="@layout/topic_cardview_layout"/>
+                        tools:listitem="@layout/topic_cardview_layout" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
