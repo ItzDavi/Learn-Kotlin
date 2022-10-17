@@ -5,8 +5,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.davidemolo.learnkotlin.R
+import com.davidemolo.learnkotlin.topics.lessons.LessonViewModel
 
 class TopicAdapter(private val mList: List<TopicViewModel>, var context: Context) : RecyclerView.Adapter<TopicAdapter.ViewHolder>() {
 
@@ -24,6 +26,10 @@ class TopicAdapter(private val mList: List<TopicViewModel>, var context: Context
         "${item.topicLessons} Lessons".also { holder.topicLessonsTextView.text = it }
         "${item.topicDifficulty} / 5".also { holder.topicDifficultyTextView.text = it }
         holder.topicLanguageTextView.text = item.topicLanguage
+
+        holder.topicCardView.setOnClickListener {
+
+        }
     }
 
     override fun getItemCount(): Int {
@@ -36,5 +42,7 @@ class TopicAdapter(private val mList: List<TopicViewModel>, var context: Context
         val topicLessonsTextView: TextView = itemView.findViewById(R.id.card_view_topic_lessons_textview)
         val topicDifficultyTextView: TextView = itemView.findViewById(R.id.cardview_topic_difficulty_textview)
         val topicLanguageTextView: TextView = itemView.findViewById(R.id.cardview_topic_language_textview)
+
+        val topicCardView: CardView = itemView.findViewById(R.id.cardview_topic_cardview)
     }
 }
