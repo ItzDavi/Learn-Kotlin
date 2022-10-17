@@ -14,4 +14,6 @@
     <color name="material_a2_red">#FF5252</color>
     <color name="material_green">#4CAF50</color>
     <color name="material_a2_green">#69F0AE</color>
+    <color name="material_orange">#FFC107</color>
+    <color name="material_a2_orange">#FFD740</color>
 </resources>
