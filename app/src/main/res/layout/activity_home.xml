@@ -116,56 +116,15 @@
 
             </androidx.core.widget.NestedScrollView>
 
-            <TextView
-                android:id="@+id/lessons_textview"
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/lessons_home_fragment"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="20dp"
-                android:layout_marginTop="14dp"
-                android:fontFamily="@font/poppinsregular"
-                android:text="Lessons"
-                android:textColor="@color/material_a2_blue"
-                android:textSize="22sp"
-                android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/topics_scrollview" />
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/lessons_back_cardview"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginHorizontal="10dp"
-                android:layout_marginBottom="8dp"
-                android:paddingVertical="8dp"
-                android:visibility="gone"
-                app:cardBackgroundColor="@color/material_a2_blue"
-                app:cardCornerRadius="18dp"
-                app:cardElevation="0dp"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/lessons_textview">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/lessons_recyclerview"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        tools:itemCount="1"
-                        tools:listitem="@layout/lesson_list_layout" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </androidx.cardview.widget.CardView>
+                app:layout_constraintTop_toBottomOf="@id/topics_scrollview"
+                tools:layout="@layout/fragment_lessons" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
