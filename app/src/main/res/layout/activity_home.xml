@@ -7,6 +7,18 @@
     tools:context=".HomeActivity"
     android:background="@color/white">
 
+    <ImageView
+        android:id="@+id/lessons_empty_background"
+        android:layout_width="280dp"
+        android:layout_height="wrap_content"
+        android:src="@drawable/coursebackground"
+        android:adjustViewBounds="true"
+        android:visibility="gone"
+        android:layout_marginBottom="28dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
     <androidx.core.widget.NestedScrollView
         android:id="@+id/home_scrollview"
         android:layout_width="match_parent"
@@ -122,9 +134,9 @@
                 android:layout_height="wrap_content"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/topics_scrollview"
                 tools:layout="@layout/fragment_lessons" />
+
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

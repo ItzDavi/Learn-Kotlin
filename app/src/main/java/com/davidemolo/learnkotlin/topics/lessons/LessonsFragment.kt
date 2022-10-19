@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AnimationUtils
+import android.widget.ImageView
+import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -30,10 +32,18 @@ class LessonsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val lessonImage = activity?.findViewById<ImageView>(R.id.lessons_empty_background)
+        val slideOutDownAnimation = AnimationUtils.loadAnimation(context, R.anim.slide_out_down)
         val lessonsRecyclerView = lessonsBinding.lessonsRecyclerview
+
         lessonsRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
         lessonsBinding.lessonsTextview.text = topic
+
+        /*if (lessonImage?.visibility == View.VISIBLE) {
+            lessonImage.startAnimation(slideOutDownAnimation)
+            lessonImage.visibility = View.GONE
+        }*/
 
         lifecycleScope.launch {
             loadLessons(lessonsRecyclerView, topic)

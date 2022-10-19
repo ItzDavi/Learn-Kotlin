@@ -29,6 +29,7 @@ class HomeActivity : AppCompatActivity() {
 
         val slideInDownAnimation = AnimationUtils.loadAnimation(this, R.anim.slide_in_down)
         val slideInRightAnimation = AnimationUtils.loadAnimation(this, R.anim.slide_in_right)
+        val slideInUpAnimation = AnimationUtils.loadAnimation(this, R.anim.slide_in_up)
 
         val topicsRecyclerView = binding.topicsRecyclerview
         topicsRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
@@ -39,6 +40,10 @@ class HomeActivity : AppCompatActivity() {
             delay(600)
             binding.homeCustomAppbar.visibility = View.VISIBLE
             binding.homeCustomAppbar.startAnimation(slideInDownAnimation)
+
+            delay(400)
+            binding.lessonsEmptyBackground.visibility = View.VISIBLE
+            binding.lessonsEmptyBackground.startAnimation(slideInUpAnimation)
 
             delay(300)
             binding.topicsTextview.visibility = View.VISIBLE
