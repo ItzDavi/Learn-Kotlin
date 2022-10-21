@@ -14,7 +14,8 @@
         android:src="@drawable/coursebackground"
         android:adjustViewBounds="true"
         android:visibility="gone"
-        android:layout_marginBottom="28dp"
+        android:clickable="true"
+        android:layout_marginBottom="58dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
@@ -84,7 +85,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginHorizontal="20dp"
                 android:layout_marginTop="14dp"
-                android:fontFamily="@font/poppinsregular"
+                android:fontFamily="@font/poppinsbold"
                 android:text="Topics"
                 android:textColor="@color/material_a2_blue"
                 android:textSize="22sp"
@@ -116,7 +117,6 @@
                         android:id="@+id/topics_recyclerview"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:background="@color/white"
                         android:orientation="horizontal"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -136,7 +136,6 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/topics_scrollview"
                 tools:layout="@layout/fragment_lessons" />
-
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

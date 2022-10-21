@@ -1,9 +1,10 @@
 package com.davidemolo.learnkotlin
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.animation.AnimationUtils
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,6 +14,7 @@ import com.davidemolo.learnkotlin.topics.TopicAdapter
 import com.davidemolo.learnkotlin.topics.TopicViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
+import javax.net.ssl.SSLParameters
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
@@ -23,9 +25,9 @@ class HomeActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        val poppinsRegular = ResourcesCompat.getFont(this, R.font.poppinsregular)
+        val poppinsBold = ResourcesCompat.getFont(this, R.font.poppinsbold)
 
-        binding.welcomeTextview.typeface = poppinsRegular
+        binding.welcomeTextview.typeface = poppinsBold
 
         val slideInDownAnimation = AnimationUtils.loadAnimation(this, R.anim.slide_in_down)
         val slideInRightAnimation = AnimationUtils.loadAnimation(this, R.anim.slide_in_right)
