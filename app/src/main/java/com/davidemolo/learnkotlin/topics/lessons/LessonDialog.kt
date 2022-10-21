@@ -51,7 +51,7 @@ class LessonDialog(private val lessonData: List<LessonViewModel>, private var po
 
         nextLessonButton.setOnClickListener {
             dialogScrollView.fullScroll(ScrollView.FOCUS_UP)
-            
+
             lessonTitleTextView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.fast_fade_out))
             lessonTitleTextView.visibility = View.INVISIBLE
             lessonTextTextView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.fast_fade_out))

@@ -55,6 +55,11 @@ class HomeActivity : AppCompatActivity() {
             binding.topicsScrollview.visibility = View.VISIBLE
             binding.topicsScrollview.startAnimation(slideInRightAnimation)
         }
+
+        val infoButton = binding.homeInfoImageview
+        infoButton.setOnClickListener {
+            startActivity(Intent(this, InfoActivity::class.java))
+        }
     }
 
     private fun loadTopics(topicsRecyclerView: RecyclerView) {
