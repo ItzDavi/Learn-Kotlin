@@ -1,9 +1,12 @@
 package com.davidemolo.learnkotlin.topics.lessons
 
+import android.graphics.text.LineBreaker.JUSTIFICATION_MODE_INTER_WORD
+import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.WindowManager
 import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import android.widget.ScrollView
@@ -26,7 +29,10 @@ class LessonDialog(private val lessonData: List<LessonViewModel>, private var po
         super.onStart()
         val width = (resources.displayMetrics.widthPixels * 0.85).toInt()
         val height = (resources.displayMetrics.heightPixels * 0.95).toInt()
-        dialog!!.window?.setLayout(width, height)
+        dialog!!.window?.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
+        dialog!!.window?.statusBarColor = requireContext().getColor(R.color.material_a2_blue)
+
+        dialog!!.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
 
         loadLesson(lessonData[position])
     }
@@ -44,6 +50,8 @@ class LessonDialog(private val lessonData: List<LessonViewModel>, private var po
         val lessonTextTextView = dialog!!.findViewById<TextView>(R.id.lesson_text_textview)
 
         nextLessonButton.setOnClickListener {
+            dialogScrollView.fullScroll(ScrollView.FOCUS_UP)
+            
             lessonTitleTextView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.fast_fade_out))
             lessonTitleTextView.visibility = View.INVISIBLE
             lessonTextTextView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.fast_fade_out))
@@ -54,8 +62,6 @@ class LessonDialog(private val lessonData: List<LessonViewModel>, private var po
                 lifecycleScope.launch {
                     delay(300)
                     loadLesson(lessonData[currentPos])
-
-                    dialogScrollView.fullScroll(ScrollView.FOCUS_UP)
 
                     lessonTitleTextView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.fast_fade_in))
                     lessonTitleTextView.visibility = View.VISIBLE
