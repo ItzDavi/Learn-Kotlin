@@ -37,6 +37,7 @@ class LessonsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val lessonsRecyclerView = lessonsBinding.lessonsRecyclerview
+        val topicQuizButton = lessonsBinding.topicQuizButton
 
         lessonsRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
