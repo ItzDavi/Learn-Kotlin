@@ -32,7 +32,8 @@ class LessonDialog(private val lessonData: List<LessonViewModel>, private var po
         dialog!!.window?.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
         dialog!!.window?.statusBarColor = requireContext().getColor(R.color.material_a2_blue)
 
-        dialog!!.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+        dialog!!.window?.setLayout(width, height)
+
 
         loadLesson(lessonData[position])
     }
