@@ -60,6 +60,18 @@
 
         </androidx.cardview.widget.CardView>
 
+        <Button
+            android:id="@+id/topic_quiz_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:backgroundTint="@color/material_a2_blue"
+            android:elevation="15dp"
+            android:text="Take the quiz!"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lessons_back_cardview" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
