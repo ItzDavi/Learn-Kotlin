@@ -11,6 +11,7 @@ import android.widget.ScrollView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
+import androidx.core.graphics.drawable.toBitmap
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.lifecycleScope
 import com.davidemolo.learnkotlin.R
@@ -30,7 +31,8 @@ class LessonDialog(private val lessonData: List<LessonViewModel>, private var po
         dialog!!.window?.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
         dialog!!.window?.statusBarColor = requireContext().getColor(R.color.material_a2_blue)
 
-        dialog!!.window?.setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT)
+        dialog!!.window?.setLayout(width, height)
+
 
         loadLesson(lessonData[position])
     }
@@ -45,15 +47,18 @@ class LessonDialog(private val lessonData: List<LessonViewModel>, private var po
         var currentPos = position
 
         val lessonTitleTextView = dialog!!.findViewById<TextView>(R.id.lesson_textview)
-        val lessonTextTextView = dialog!!.findViewById<TextView>(R.id.lesson_text_textview)
+        val lessonParagraph1TextView = dialog!!.findViewById<TextView>(R.id.lesson_text_paragraph1_textview)
+        val lessonParagraph2TextView = dialog!!.findViewById<TextView>(R.id.lesson_text_paragraph2_textview)
 
         nextLessonButton.setOnClickListener {
             dialogScrollView.fullScroll(ScrollView.FOCUS_UP)
 
             lessonTitleTextView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.fast_fade_out))
             lessonTitleTextView.visibility = View.INVISIBLE
-            lessonTextTextView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.fast_fade_out))
-            lessonTextTextView.visibility = View.INVISIBLE
+            lessonParagraph1TextView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.fast_fade_out))
+            lessonParagraph1TextView.visibility = View.INVISIBLE
+            lessonParagraph2TextView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.fast_fade_out))
+            lessonParagraph2TextView.visibility = View.INVISIBLE
 
             currentPos++
             if (currentPos < lessonData.size) {
@@ -63,8 +68,10 @@ class LessonDialog(private val lessonData: List<LessonViewModel>, private var po
 
                     lessonTitleTextView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.fast_fade_in))
                     lessonTitleTextView.visibility = View.VISIBLE
-                    lessonTextTextView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.fast_fade_in))
-                    lessonTextTextView.visibility = View.VISIBLE
+                    lessonParagraph1TextView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.fast_fade_in))
+                    lessonParagraph1TextView.visibility = View.VISIBLE
+                    lessonParagraph2TextView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.fast_fade_in))
+                    lessonParagraph2TextView.visibility = View.VISIBLE
                 }
             } else {
                 Toast.makeText(requireContext(), "Topic completed!", Toast.LENGTH_SHORT).show()
@@ -79,11 +86,16 @@ class LessonDialog(private val lessonData: List<LessonViewModel>, private var po
 
     private fun loadLesson(lessonData: LessonViewModel) {
         val lessonTitleTextView = dialog!!.findViewById<TextView>(R.id.lesson_textview)
-        //Dichiaro la textview nel dialog
-        val lessonTextTextView = dialog!!.findViewById<TextView>(R.id.lesson_text_textview)
+        val lessonParagraph1TextView = dialog!!.findViewById<TextView>(R.id.lesson_text_paragraph1_textview)
+        val lessonParagraph2TextView = dialog!!.findViewById<TextView>(R.id.lesson_text_paragraph2_textview)
+        val lessonContentImage = dialog!!.findViewById<ImageView>(R.id.lesson_content_image_view)
+
 
         lessonTitleTextView.text = lessonData.lessonTitle
-        //Assegno il testo dal viewmodel delle lesson (con già la posizione assegnata, riga 64 questo file)
-        lessonTextTextView.text = lessonData.lessonText
+        lessonParagraph1TextView.text = lessonData.firstParagraph
+        lessonParagraph2TextView.text = lessonData.secondParagraph
+        lessonContentImage.setImageDrawable(lessonData.contentImage)
+
+
     }
 }
