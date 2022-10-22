@@ -46,15 +46,18 @@ class LessonDialog(private val lessonData: List<LessonViewModel>, private var po
         var currentPos = position
 
         val lessonTitleTextView = dialog!!.findViewById<TextView>(R.id.lesson_textview)
-        val lessonTextTextView = dialog!!.findViewById<TextView>(R.id.lesson_text_paragraph1_textview)
+        val lessonParagraph1TextView = dialog!!.findViewById<TextView>(R.id.lesson_text_paragraph1_textview)
+        val lessonParagraph2TextView = dialog!!.findViewById<TextView>(R.id.lesson_text_paragraph2_textview)
 
         nextLessonButton.setOnClickListener {
             dialogScrollView.fullScroll(ScrollView.FOCUS_UP)
 
             lessonTitleTextView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.fast_fade_out))
             lessonTitleTextView.visibility = View.INVISIBLE
-            lessonTextTextView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.fast_fade_out))
-            lessonTextTextView.visibility = View.INVISIBLE
+            lessonParagraph1TextView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.fast_fade_out))
+            lessonParagraph1TextView.visibility = View.INVISIBLE
+            lessonParagraph2TextView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.fast_fade_out))
+            lessonParagraph2TextView.visibility = View.INVISIBLE
 
             currentPos++
             if (currentPos < lessonData.size) {
@@ -64,8 +67,10 @@ class LessonDialog(private val lessonData: List<LessonViewModel>, private var po
 
                     lessonTitleTextView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.fast_fade_in))
                     lessonTitleTextView.visibility = View.VISIBLE
-                    lessonTextTextView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.fast_fade_in))
-                    lessonTextTextView.visibility = View.VISIBLE
+                    lessonParagraph1TextView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.fast_fade_in))
+                    lessonParagraph1TextView.visibility = View.VISIBLE
+                    lessonParagraph2TextView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.fast_fade_in))
+                    lessonParagraph2TextView.visibility = View.VISIBLE
                 }
             } else {
                 Toast.makeText(requireContext(), "Topic completed!", Toast.LENGTH_SHORT).show()
