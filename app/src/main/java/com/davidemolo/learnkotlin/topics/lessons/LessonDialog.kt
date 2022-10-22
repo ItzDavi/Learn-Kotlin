@@ -1,7 +1,5 @@
 package com.davidemolo.learnkotlin.topics.lessons
 
-import android.graphics.text.LineBreaker.JUSTIFICATION_MODE_INTER_WORD
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -48,7 +46,7 @@ class LessonDialog(private val lessonData: List<LessonViewModel>, private var po
         var currentPos = position
 
         val lessonTitleTextView = dialog!!.findViewById<TextView>(R.id.lesson_textview)
-        val lessonTextTextView = dialog!!.findViewById<TextView>(R.id.lesson_text_textview)
+        val lessonTextTextView = dialog!!.findViewById<TextView>(R.id.lesson_text_paragraph1_textview)
 
         nextLessonButton.setOnClickListener {
             dialogScrollView.fullScroll(ScrollView.FOCUS_UP)
@@ -82,10 +80,13 @@ class LessonDialog(private val lessonData: List<LessonViewModel>, private var po
 
     private fun loadLesson(lessonData: LessonViewModel) {
         val lessonTitleTextView = dialog!!.findViewById<TextView>(R.id.lesson_textview)
-       val lessonTextTextView = dialog!!.findViewById<TextView>(R.id.lesson_text_textview)
+       val lessonParagraph1TextView = dialog!!.findViewById<TextView>(R.id.lesson_text_paragraph1_textview)
+        val lessonParagraph2TextView = dialog!!.findViewById<TextView>(R.id.lesson_text_paragraph2_textview)
+
 
         lessonTitleTextView.text = lessonData.lessonTitle
-        lessonTextTextView.text = lessonData.lessonText
+        lessonParagraph1TextView.text = lessonData.firstParagraph
+        lessonParagraph2TextView.text = lessonData.secondParagraph
 
     }
 }

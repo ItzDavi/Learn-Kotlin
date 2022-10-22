@@ -22,7 +22,7 @@
     <string name="variables_3_a">The lateinit lets you defer property initialization. When using lateinit, you should initialize your property as soon as possible.</string>
     <string name="variables_3_b">private means that the member is visible inside this class only (including all its members).</string>
     <string name="activities_1_a">An activity is a single, focused thing that the user can do. Almost all activities interact with the user, so the Activity class takes care of creating a window for you in which you can place your UI </string>
-    <string name="activities_1_b"> While activities are often presented to the user as full-screen windows, they can also be used in other ways: as floating windows), Multi-Window mode or embedded into other windows.</string>
+    <string name="activities_1_b"> While activities are often presented to the user as full-screen windows, they can also be used in other ways: as floating windows, Multi-Window mode or embedded into other windows.</string>
     <string name="activities_2_a">Activities in the system are managed as activity stacks. When a new activity is started, it is usually placed on the top of the current stack and becomes the running activity.</string>
     <string name="activities_2_b">Hello blank fragment</string>
     <string name="activities_3_a">Hello blank fragment</string>
@@ -38,22 +38,39 @@
     <string name="loops_2_a">Hello blank fragment</string>
     <string name="loops_2_b">Hello blank fragment</string>
     <string name="layouts_1_a">Hello blank fragment</string>
+    <string name="layouts_1_b">Hello blank fragment</string>
     <string name="layouts_2_a">Hello blank fragment</string>
+    <string name="layouts_2_b">Hello blank fragment</string>
     <string name="layouts_3_a">Hello blank fragment</string>
+    <string name="layouts_3_b">Hello blank fragment</string>
     <string name="events_1_a">Hello blank fragment</string>
+    <string name="events_1_b">Hello blank fragment</string>
     <string name="events_2_a">Hello blank fragment</string>
+    <string name="events_2_b">Hello blank fragment</string>
     <string name="webview_1_a">Hello blank fragment</string>
+    <string name="webview_1_b">Hello blank fragment</string>
     <string name="webview_2_a">Hello blank fragment</string>
+    <string name="webview_2_b">Hello blank fragment</string>
     <string name="webview_3_a">Hello blank fragment</string>
+    <string name="webview_3_b">Hello blank fragment</string>
     <string name="fragments_1_a">Hello blank fragment</string>
+    <string name="fragments_1_b">Hello blank fragment</string>
     <string name="fragments_2_a">Hello blank fragment</string>
+    <string name="fragments_2_b">Hello blank fragment</string>
     <string name="fragments_3_a">Hello blank fragment</string>
+    <string name="fragments_3_b">Hello blank fragment</string>
     <string name="viewbinding_1_a">Hello blank fragment</string>
+    <string name="viewbinding_1_b">Hello blank fragment</string>
     <string name="viewbinding_2_a">Hello blank fragment</string>
+    <string name="viewbinding_2_b">Hello blank fragment</string>
     <string name="animations_1_a">Hello blank fragment</string>
+    <string name="animations_1_b">Hello blank fragment</string>
     <string name="animations_2_a">Hello blank fragment</string>
+    <string name="animations_2_b">Hello blank fragment</string>
     <string name="animations_3_a">Hello blank fragment</string>
+    <string name="animations_3_b">Hello blank fragment</string>
     <string name="animations_4_a">Hello blank fragment</string>
+    <string name="animations_4_b">Hello blank fragment</string>
 
 
 </resources>
