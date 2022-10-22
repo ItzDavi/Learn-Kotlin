@@ -2,8 +2,4 @@
     <string name="app_name">LearnKotlin</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="itzdavilink">Instagram:\n\<a href="https://www.instagram.com/davidepuntomolo/">@davidepuntomolo</a></string>
-    <string name="svarionlink">Instagram:\n\<a href="https://www.instagram.com/svi_ale91/">@svi_ale91</a></string>
-    <string name="itzdavigitlink">Projects:\n\<a href="https://www.github.com/ItzDavi/">GitHub.com/ItzDavi</a></string>
-    <string name="svariongitlink">Projects:\n\<a href="https://www.github.com/svarion1/">GitHub.com/Svarion1</a></string>
 </resources>

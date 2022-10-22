@@ -48,64 +48,51 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/memberone_imageview"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="8dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:shapeAppearanceOverlay="@style/circleImageView"
-                app:srcCompat="@drawable/itzdavi" />
-
             <TextView
                 android:id="@+id/memberone_name_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/poppinsbold"
                 android:text="Davide Molo"
                 android:textColor="@color/white"
                 android:textSize="18sp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/poppinsbold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/memberone_imageview" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/memberone_desc_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginVertical="24dp"
-                android:fontFamily="@font/poppinsregular"
                 android:text="Mobile App and Gaming Developer"
-                android:textAlignment="center"
                 android:textColor="@color/white"
                 android:textSize="16sp"
+                android:textAlignment="center"
+                android:layout_marginVertical="24dp"
+                android:fontFamily="@font/poppinsregular"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/memberone_name_textview" />
+                app:layout_constraintTop_toBottomOf="@id/memberone_name_textview" />
 
             <TextView
                 android:id="@+id/memberone_insta_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/poppinsbold"
-                android:text="@string/itzdavilink"
+                android:layout_marginTop="24dp"
                 android:textAlignment="center"
+                android:text="Instagram:\n\@davidepuntomolo"
                 android:textColor="@color/white"
-                android:textColorLink="@color/white"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:fontFamily="@font/poppinsbold"
+                app:layout_constraintTop_toBottomOf="@id/memberone_desc_textview"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/memberone_desc_textview" />
+                app:layout_constraintEnd_toEndOf="parent" />
 
             <TextView
-                android:textColorLink="@color/white"
                 android:id="@+id/memberone_github_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/itzdavigitlink"
+                android:text="Projects:\nGitHub.com/ItzDavi"
                 android:textColor="@color/white"
                 android:textAlignment="center"
                 android:fontFamily="@font/poppinsbold"
@@ -137,30 +124,18 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <com.google.android.material.imageview.ShapeableImageView
-                android:id="@+id/membertwo_imageview"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_marginTop="8dp"
-                android:background="#FFA14A"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:shapeAppearanceOverlay="@style/circleImageView"
-                app:srcCompat="@drawable/svarion" />
-
             <TextView
                 android:id="@+id/membertwo_name_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/poppinsbold"
                 android:text="Alessandro Scisci"
                 android:textColor="@color/white"
                 android:textSize="18sp"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/poppinsbold"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/membertwo_imageview" />
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/membertwo_desc_textview"
@@ -177,12 +152,11 @@
                 app:layout_constraintTop_toBottomOf="@id/membertwo_name_textview" />
 
             <TextView
-                android:textColorLink="@color/white"
                 android:id="@+id/membertwo_insta_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
-                android:text="@string/svarionlink"
+                android:text="Instagram:\n\@svi_ale91"
                 android:textColor="@color/white"
                 android:fontFamily="@font/poppinsbold"
                 app:layout_constraintTop_toBottomOf="@id/membertwo_desc_textview"
@@ -190,11 +164,10 @@
                 app:layout_constraintEnd_toEndOf="parent" />
 
             <TextView
-                android:textColorLink="@color/white"
                 android:id="@+id/membertwo_github_textview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/svariongitlink"
+                android:text="Projects:\nGitHub.com/Svarion1"
                 android:textColor="@color/white"
                 android:fontFamily="@font/poppinsbold"
                 android:textAlignment="center"

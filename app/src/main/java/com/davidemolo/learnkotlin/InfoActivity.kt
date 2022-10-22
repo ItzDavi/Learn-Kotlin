@@ -2,7 +2,6 @@ package com.davidemolo.learnkotlin
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
 import com.davidemolo.learnkotlin.databinding.ActivityInfoBinding
 
@@ -13,19 +12,6 @@ class InfoActivity : AppCompatActivity() {
         binding = ActivityInfoBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-
-        val instaLink1 = binding.memberoneInstaTextview
-        val instaLink2 = binding.membertwoInstaTextview
-        val gitLink1 = binding.memberoneGithubTextview
-        val gitLink2 = binding.membertwoGithubTextview
-
-
-        instaLink1.movementMethod = LinkMovementMethod.getInstance()
-        instaLink2.movementMethod = LinkMovementMethod.getInstance()
-
-        gitLink1.movementMethod = LinkMovementMethod.getInstance()
-        gitLink2.movementMethod = LinkMovementMethod.getInstance()
-
 
         val backButton = binding.backButton
         backButton.setOnClickListener {
