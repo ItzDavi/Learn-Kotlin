@@ -6,4 +6,14 @@
     <string name="svarionlink">Instagram:\n\<a href="https://www.instagram.com/svi_ale91/">@svi_ale91</a></string>
     <string name="itzdavigitlink">Projects:\n\<a href="https://www.github.com/ItzDavi/">GitHub.com/ItzDavi</a></string>
     <string name="svariongitlink">Projects:\n\<a href="https://www.github.com/svarion1/">GitHub.com/Svarion1</a></string>
+    <string name="testlesson101">Topic 1 Lesson 01</string>
+    <string name="testlesson102">Topic 1 Lesson 02</string>
+    <string name="testlesson201">Topic 2 Lesson 01</string>
+    <string name="testlesson202">Topic 2 Lesson 02</string>
+    <string name="testlesson203">Topic 2 Lesson 03</string>
+    <string name="testlesson301">Topic 3 Lesson 01</string>
+    <string name="testlesson302">Topic 3 Lesson 02</string>
+    <string name="testlesson303">Topic 3 Lesson 03</string>
+
+
 </resources>

@@ -1,7 +1,5 @@
 package com.davidemolo.learnkotlin.topics.lessons
 
-import android.graphics.text.LineBreaker.JUSTIFICATION_MODE_INTER_WORD
-import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -27,8 +25,8 @@ class LessonDialog(private val lessonData: List<LessonViewModel>, private var po
 
     override fun onStart() {
         super.onStart()
-        val width = (resources.displayMetrics.widthPixels * 0.85).toInt()
-        val height = (resources.displayMetrics.heightPixels * 0.95).toInt()
+        //val width = (resources.displayMetrics.widthPixels * 0.85).toInt()
+        //val height = (resources.displayMetrics.heightPixels * 0.95).toInt()
         dialog!!.window?.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
         dialog!!.window?.statusBarColor = requireContext().getColor(R.color.material_a2_blue)
 
@@ -81,8 +79,11 @@ class LessonDialog(private val lessonData: List<LessonViewModel>, private var po
 
     private fun loadLesson(lessonData: LessonViewModel) {
         val lessonTitleTextView = dialog!!.findViewById<TextView>(R.id.lesson_textview)
-        //val lessonTextTextView = dialog!!.findViewById<TextView>(R.id.lesson_text_textview)
+        //Dichiaro la textview nel dialog
+        val lessonTextTextView = dialog!!.findViewById<TextView>(R.id.lesson_text_textview)
 
         lessonTitleTextView.text = lessonData.lessonTitle
+        //Assegno il testo dal viewmodel delle lesson (con già la posizione assegnata, riga 64 questo file)
+        lessonTextTextView.text = lessonData.lessonText
     }
 }
