@@ -6,7 +6,7 @@
     <string name="svarionlink">Instagram:\n\<a href="https://www.instagram.com/svi_ale91/">@svi_ale91</a></string>
     <string name="itzdavigitlink">Projects:\n\<a href="https://www.github.com/ItzDavi/">GitHub.com/ItzDavi</a></string>
     <string name="svariongitlink">Projects:\n\<a href="https://www.github.com/svarion1/">GitHub.com/Svarion1</a></string>
-
+    
     <!-- Lessons Strings -->
     <string name="lesson1_1">Kotlin is a statically typed programming language that runs on the Java Virtual Machine and also can be compiled to JavaScript source code or use the LLVM compiler infrastructure. Kotlin is developed by JetBrains, the company behind IntelliJ IDEA, the most popular Java IDE.</string>
     <string name="kotlin_1_a">Kotlin is a general purpose, free, open source, statically typed pragmatic programming language. At first glance, Kotlin looks like a more concise and streamlined version of Java. Functions are defined with the fun keyword, and that semicolons are now optional when newlines are present.</string>

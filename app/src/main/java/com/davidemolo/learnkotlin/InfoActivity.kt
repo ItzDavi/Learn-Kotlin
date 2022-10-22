@@ -4,7 +4,6 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.method.LinkMovementMethod
-import android.view.LayoutInflater
 import com.davidemolo.learnkotlin.databinding.ActivityInfoBinding
 
 class InfoActivity : AppCompatActivity() {

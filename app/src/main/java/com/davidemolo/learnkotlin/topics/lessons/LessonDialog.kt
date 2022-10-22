@@ -26,8 +26,8 @@ class LessonDialog(private val lessonData: List<LessonViewModel>, private var po
 
     override fun onStart() {
         super.onStart()
-        val width = (resources.displayMetrics.widthPixels * 0.85).toInt()
-        val height = (resources.displayMetrics.heightPixels * 0.95).toInt()
+        //val width = (resources.displayMetrics.widthPixels * 0.85).toInt()
+        //val height = (resources.displayMetrics.heightPixels * 0.95).toInt()
         dialog!!.window?.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
         dialog!!.window?.statusBarColor = requireContext().getColor(R.color.material_a2_blue)
 
@@ -95,6 +95,7 @@ class LessonDialog(private val lessonData: List<LessonViewModel>, private var po
         lessonParagraph1TextView.text = lessonData.firstParagraph
         lessonParagraph2TextView.text = lessonData.secondParagraph
         lessonContentImage.setImageDrawable(lessonData.contentImage)
+
 
     }
 }

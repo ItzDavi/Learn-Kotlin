@@ -11,4 +11,5 @@ class LessonViewModel(
     val firstParagraph: String,
     val secondParagraph: String,
     val contentImage: Drawable
+    
     ) : ViewModel()
