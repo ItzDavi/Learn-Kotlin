@@ -85,13 +85,15 @@ class LessonDialog(private val lessonData: List<LessonViewModel>, private var po
 
     private fun loadLesson(lessonData: LessonViewModel) {
         val lessonTitleTextView = dialog!!.findViewById<TextView>(R.id.lesson_textview)
-       val lessonParagraph1TextView = dialog!!.findViewById<TextView>(R.id.lesson_text_paragraph1_textview)
+        val lessonParagraph1TextView = dialog!!.findViewById<TextView>(R.id.lesson_text_paragraph1_textview)
         val lessonParagraph2TextView = dialog!!.findViewById<TextView>(R.id.lesson_text_paragraph2_textview)
+        val lessonContentImage = dialog!!.findViewById<ImageView>(R.id.lesson_content_image_view)
 
 
         lessonTitleTextView.text = lessonData.lessonTitle
         lessonParagraph1TextView.text = lessonData.firstParagraph
         lessonParagraph2TextView.text = lessonData.secondParagraph
+
 
     }
 }
