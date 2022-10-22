@@ -11,6 +11,7 @@ import android.widget.ScrollView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
+import androidx.core.graphics.drawable.toBitmap
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.lifecycleScope
 import com.davidemolo.learnkotlin.R
@@ -93,7 +94,7 @@ class LessonDialog(private val lessonData: List<LessonViewModel>, private var po
         lessonTitleTextView.text = lessonData.lessonTitle
         lessonParagraph1TextView.text = lessonData.firstParagraph
         lessonParagraph2TextView.text = lessonData.secondParagraph
-
+        lessonContentImage.setImageDrawable(lessonData.contentImage)
 
     }
 }

@@ -63,14 +63,15 @@
             <ImageView
                 android:id="@+id/lesson_content_image_view"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="160dp"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
+                android:scaleType="centerCrop"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/lesson_text_paragraph1_textview"
-                tools:srcCompat="@tools:sample/avatars" />
+                app:srcCompat="@drawable/lesson_activities_1" />
 
             <TextView
                 android:id="@+id/lesson_text_paragraph2_textview"
