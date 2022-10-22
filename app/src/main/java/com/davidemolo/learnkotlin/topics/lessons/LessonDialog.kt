@@ -82,8 +82,10 @@ class LessonDialog(private val lessonData: List<LessonViewModel>, private var po
 
     private fun loadLesson(lessonData: LessonViewModel) {
         val lessonTitleTextView = dialog!!.findViewById<TextView>(R.id.lesson_textview)
-        //val lessonTextTextView = dialog!!.findViewById<TextView>(R.id.lesson_text_textview)
+       val lessonTextTextView = dialog!!.findViewById<TextView>(R.id.lesson_text_textview)
 
         lessonTitleTextView.text = lessonData.lessonTitle
+        lessonTextTextView.text = lessonData.lessonText
+
     }
 }

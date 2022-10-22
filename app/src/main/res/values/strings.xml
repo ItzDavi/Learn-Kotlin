@@ -6,4 +6,54 @@
     <string name="svarionlink">Instagram:\n\<a href="https://www.instagram.com/svi_ale91/">@svi_ale91</a></string>
     <string name="itzdavigitlink">Projects:\n\<a href="https://www.github.com/ItzDavi/">GitHub.com/ItzDavi</a></string>
     <string name="svariongitlink">Projects:\n\<a href="https://www.github.com/svarion1/">GitHub.com/Svarion1</a></string>
+
+
+
+    <!-- Lessons Strings -->
+    <string name="lesson1_1">Kotlin is a statically typed programming language that runs on the Java Virtual Machine and also can be compiled to JavaScript source code or use the LLVM compiler infrastructure. Kotlin is developed by JetBrains, the company behind IntelliJ IDEA, the most popular Java IDE.</string>
+    <string name="kotlin_1_a">Kotlin is a general purpose, free, open source, statically typed pragmatic programming language. At first glance, Kotlin looks like a more concise and streamlined version of Java. Functions are defined with the fun keyword, and that semicolons are now optional when newlines are present.</string>
+    <string name="kotlin_1_b">Many asynchronous mechanisms available in other languages can be implemented as libraries using Kotlin coroutines. This includes async/await from C#.</string>
+    <string name="kotlin_2_a">In the top row, click the Empty Activity template to select it as the template for your project.The Empty Activity template is the simplest template that can be used to create an app. It has a single screen and displays a simple "Hello World!" message.</string>
+    <string name="kotlin_2_b">When you first open Android Studio, you\'ll see three windows:(1) The Project window shows the files and folders of your project.(2) The Editing window is for editing code.(3) The What\'s New window shows news and useful tips.</string>
+    <string name="variables_1_a">When you decide what aspects of your app can be variable, it\'s important to specify what type of data can be stored in those variables. In Kotlin, there are some common basic data types, like Int, String, Boolean, Double and Float. </string>
+    <string name="variables_1_b">In Kotlin, everything is an object in the sense that you can call member functions and properties on any variable.</string>
+    <string name="variables_2_a">Read-only local variables are defined using the keyword val. They can be assigned a value only once. Variables that can be reassigned use the var keyword.</string>
+    <string name="variables_2_b">When you define a variable, you assign a name to uniquely identify it. You also decide what type of data it can hold by specifying the data type.</string>
+    <string name="variables_3_a">The lateinit lets you defer property initialization. When using lateinit, you should initialize your property as soon as possible.</string>
+    <string name="variables_3_b">private means that the member is visible inside this class only (including all its members).</string>
+    <string name="activities_1_a">An activity is a single, focused thing that the user can do. Almost all activities interact with the user, so the Activity class takes care of creating a window for you in which you can place your UI </string>
+    <string name="activities_1_b"> While activities are often presented to the user as full-screen windows, they can also be used in other ways: as floating windows), Multi-Window mode or embedded into other windows.</string>
+    <string name="activities_2_a">Activities in the system are managed as activity stacks. When a new activity is started, it is usually placed on the top of the current stack and becomes the running activity.</string>
+    <string name="activities_2_b">Hello blank fragment</string>
+    <string name="activities_3_a">Hello blank fragment</string>
+    <string name="activities_3_b">Hello blank fragment</string>
+    <string name="conditions_1_a">Hello blank fragment</string>
+    <string name="conditions_1_b">Hello blank fragment</string>
+    <string name="conditions_2_a">Hello blank fragment</string>
+    <string name="conditions_2_b">Hello blank fragment</string>
+    <string name="conditions_3_a">Hello blank fragment</string>
+    <string name="conditions_3_b">Hello blank fragment</string>
+    <string name="loops_1_a">Hello blank fragment</string>
+    <string name="loops_1_b">Hello blank fragment</string>
+    <string name="loops_2_a">Hello blank fragment</string>
+    <string name="loops_2_b">Hello blank fragment</string>
+    <string name="layouts_1_a">Hello blank fragment</string>
+    <string name="layouts_2_a">Hello blank fragment</string>
+    <string name="layouts_3_a">Hello blank fragment</string>
+    <string name="events_1_a">Hello blank fragment</string>
+    <string name="events_2_a">Hello blank fragment</string>
+    <string name="webview_1_a">Hello blank fragment</string>
+    <string name="webview_2_a">Hello blank fragment</string>
+    <string name="webview_3_a">Hello blank fragment</string>
+    <string name="fragments_1_a">Hello blank fragment</string>
+    <string name="fragments_2_a">Hello blank fragment</string>
+    <string name="fragments_3_a">Hello blank fragment</string>
+    <string name="viewbinding_1_a">Hello blank fragment</string>
+    <string name="viewbinding_2_a">Hello blank fragment</string>
+    <string name="animations_1_a">Hello blank fragment</string>
+    <string name="animations_2_a">Hello blank fragment</string>
+    <string name="animations_3_a">Hello blank fragment</string>
+    <string name="animations_4_a">Hello blank fragment</string>
+
+
 </resources>

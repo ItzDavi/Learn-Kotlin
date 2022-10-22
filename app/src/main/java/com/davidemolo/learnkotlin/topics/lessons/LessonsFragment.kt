@@ -59,66 +59,66 @@ class LessonsFragment : Fragment() {
 
         when(topic) {
             "Kotlin" -> {
-                lessonsData.add(LessonViewModel( "01", "What is Kotlin ?"))
-                lessonsData.add(LessonViewModel( "02", "Project creation"))
+                lessonsData.add(LessonViewModel( "01", "What is Kotlin ?", getString(R.string.kotlin_1_a)))
+                lessonsData.add(LessonViewModel( "02", "Project creation", getString(R.string.kotlin_2_a)))
             }
 
             "Variables" -> {
-                lessonsData.add(LessonViewModel( "01", "Data types"))
-                lessonsData.add(LessonViewModel( "01", "Val, var"))
-                lessonsData.add(LessonViewModel( "02", "Lateinit, private"))
+                lessonsData.add(LessonViewModel( "01", "Data types", getString(R.string.variables_1_a)))
+                lessonsData.add(LessonViewModel( "01", "Val, var",getString(R.string.variables_2_a)))
+                lessonsData.add(LessonViewModel( "02", "Lateinit", getString(R.string.variables_3_a)))
             }
 
             "Activities" -> {
-                lessonsData.add(LessonViewModel( "01", "What is an acvitity ?"))
-                lessonsData.add(LessonViewModel( "02", "Lifecycles"))
-                lessonsData.add(LessonViewModel( "03", "Activities structure"))
+                lessonsData.add(LessonViewModel( "01", "What is an acvitity ?",getString(R.string.activities_1_a)))
+                lessonsData.add(LessonViewModel( "02", "Lifecycles",getString(R.string.activities_2_a)))
+                lessonsData.add(LessonViewModel( "03", "Activities structure",getString(R.string.activities_3_a)))
             }
 
             "Conditions" -> {
-                lessonsData.add(LessonViewModel( "01", "If else"))
-                lessonsData.add(LessonViewModel( "02", "When"))
-                lessonsData.add(LessonViewModel( "03", "? x : y"))
+                lessonsData.add(LessonViewModel( "01", "If else",getString(R.string.conditions_1_a)))
+                lessonsData.add(LessonViewModel( "02", "When",getString(R.string.conditions_2_a)))
+                lessonsData.add(LessonViewModel( "03", "? x : y",getString(R.string.conditions_3_a)))
             }
 
             "Loops" -> {
-                lessonsData.add(LessonViewModel("01", "For, for in"))
-                lessonsData.add(LessonViewModel("02", "While, do while"))
+                lessonsData.add(LessonViewModel("01", "For, for in", getString(R.string.loops_1_a)))
+                lessonsData.add(LessonViewModel("02", "While, do while",getString(R.string.loops_2_a)))
             }
 
             "Layouts" -> {
-                lessonsData.add(LessonViewModel("01", "Basic UI concepts"))
-                lessonsData.add(LessonViewModel("02", "XMLs"))
-                lessonsData.add(LessonViewModel("03", "Constraints and Linear layouts"))
+                lessonsData.add(LessonViewModel("01", "Basic UI concepts",getString(R.string.layouts_1_a)))
+                lessonsData.add(LessonViewModel("02", "XMLs",getString(R.string.layouts_2_a)))
+                lessonsData.add(LessonViewModel("03", "Constraints and Linear layouts",getString(R.string.layouts_3_a)))
             }
 
             "Events" -> {
-                lessonsData.add(LessonViewModel("01", "Listeners"))
-                lessonsData.add(LessonViewModel("02", "Intents"))
+                lessonsData.add(LessonViewModel("01", "Listeners",getString(R.string.events_1_a)))
+                lessonsData.add(LessonViewModel("02", "Intents",getString(R.string.events_2_a)))
             }
 
             "WebView" -> {
-                lessonsData.add(LessonViewModel("01", "What is a WebView ?"))
-                lessonsData.add(LessonViewModel("02", "How to implement a WebView"))
-                lessonsData.add(LessonViewModel("03", "Why not to implement a WebView"))
+                lessonsData.add(LessonViewModel("01", "What is a WebView ?",getString(R.string.webview_1_a)))
+                lessonsData.add(LessonViewModel("02", "How to implement a WebView",getString(R.string.webview_2_a)))
+                lessonsData.add(LessonViewModel("03", "Why not to implement a WebView",getString(R.string.webview_3_a)))
             }
 
             "Fragments" -> {
-                lessonsData.add(LessonViewModel("01", "What is a fragment ?"))
-                lessonsData.add(LessonViewModel("02", "Fragments lifecycle"))
-                lessonsData.add(LessonViewModel("03", "Add two fragments"))
+                lessonsData.add(LessonViewModel("01", "What is a fragment ?",getString(R.string.fragments_1_a)))
+                lessonsData.add(LessonViewModel("02", "Fragments lifecycle",getString(R.string.fragments_2_a)))
+                lessonsData.add(LessonViewModel("03", "Add two fragments",getString(R.string.fragments_3_a)))
             }
 
             "ViewBinding" -> {
-                lessonsData.add(LessonViewModel("01", "What is ViewBinding ?"))
-                lessonsData.add(LessonViewModel("02", "Why and how to implement it"))
+                lessonsData.add(LessonViewModel("01", "What is ViewBinding ?",getString(R.string.viewbinding_1_a)))
+                lessonsData.add(LessonViewModel("02", "Why and how to implement it",getString(R.string.viewbinding_2_a)))
             }
 
             "Animations" -> {
-                lessonsData.add(LessonViewModel("01", "What are animations ?"))
-                lessonsData.add(LessonViewModel("02", "Common animations"))
-                lessonsData.add(LessonViewModel("03", "Animation or transaction ?"))
-                lessonsData.add(LessonViewModel("04", "XML examples"))
+                lessonsData.add(LessonViewModel("01", "What are animations ?",getString(R.string.animations_1_a)))
+                lessonsData.add(LessonViewModel("02", "Common animations",getString(R.string.animations_2_a)))
+                lessonsData.add(LessonViewModel("03", "Animation or transaction ?",getString(R.string.animations_3_a)))
+                lessonsData.add(LessonViewModel("04", "XML examples",getString(R.string.animations_4_a)))
             }
         }
 

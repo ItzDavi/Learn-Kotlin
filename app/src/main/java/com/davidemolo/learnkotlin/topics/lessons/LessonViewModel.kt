@@ -7,4 +7,5 @@ class LessonViewModel(
     val lessonTitle: String,
     //val lessonShortDescription: String,
     //val lessonDescription: String,
+    val lessonText: String,
     ) : ViewModel()
