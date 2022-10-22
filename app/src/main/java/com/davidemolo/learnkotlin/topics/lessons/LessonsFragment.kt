@@ -59,66 +59,68 @@ class LessonsFragment : Fragment() {
 
         when(topic) {
             "Kotlin" -> {
-                lessonsData.add(LessonViewModel( "01", "What is Kotlin ?"))
-                lessonsData.add(LessonViewModel( "02", "Project creation"))
+                //Aggiunto nel viemodel la descrizione (vedi LessonViewModel.kt)                Questa per ogni lezione test-lesson-1-01
+                lessonsData.add(LessonViewModel( "01", "What is Kotlin ?", resources.getString(R.string.testlesson101)))
+                lessonsData.add(LessonViewModel( "02", "Project creation", resources.getString(R.string.testlesson102)))
             }
 
             "Variables" -> {
-                lessonsData.add(LessonViewModel( "01", "Data types"))
-                lessonsData.add(LessonViewModel( "01", "Val, var"))
-                lessonsData.add(LessonViewModel( "02", "Lateinit, private"))
+                //                                                                                Questa per ogni lezione test-lesson-2-01
+                lessonsData.add(LessonViewModel( "01", "Data types", resources.getString(R.string.testlesson201)))
+                lessonsData.add(LessonViewModel( "01", "Val, var", resources.getString(R.string.testlesson202)))
+                lessonsData.add(LessonViewModel( "02", "Lateinit, private", resources.getString(R.string.testlesson203)))
             }
 
             "Activities" -> {
-                lessonsData.add(LessonViewModel( "01", "What is an acvitity ?"))
-                lessonsData.add(LessonViewModel( "02", "Lifecycles"))
-                lessonsData.add(LessonViewModel( "03", "Activities structure"))
+                lessonsData.add(LessonViewModel( "01", "What is an acvitity ?", resources.getString(R.string.testlesson301)))
+                lessonsData.add(LessonViewModel( "02", "Lifecycles", resources.getString(R.string.testlesson302)))
+                lessonsData.add(LessonViewModel( "03", "Activities structure", resources.getString(R.string.testlesson303)))
             }
 
             "Conditions" -> {
-                lessonsData.add(LessonViewModel( "01", "If else"))
-                lessonsData.add(LessonViewModel( "02", "When"))
-                lessonsData.add(LessonViewModel( "03", "? x : y"))
+                lessonsData.add(LessonViewModel( "01", "If else", ""))
+                lessonsData.add(LessonViewModel( "02", "When", ""))
+                lessonsData.add(LessonViewModel( "03", "? x : y", ""))
             }
 
             "Loops" -> {
-                lessonsData.add(LessonViewModel("01", "For, for in"))
-                lessonsData.add(LessonViewModel("02", "While, do while"))
+                lessonsData.add(LessonViewModel("01", "For, for in", ""))
+                lessonsData.add(LessonViewModel("02", "While, do while", ""))
             }
 
             "Layouts" -> {
-                lessonsData.add(LessonViewModel("01", "Basic UI concepts"))
-                lessonsData.add(LessonViewModel("02", "XMLs"))
-                lessonsData.add(LessonViewModel("03", "Constraints and Linear layouts"))
+                lessonsData.add(LessonViewModel("01", "Basic UI concepts", ""))
+                lessonsData.add(LessonViewModel("02", "XMLs", ""))
+                lessonsData.add(LessonViewModel("03", "Constraints and Linear layouts", ""))
             }
 
             "Events" -> {
-                lessonsData.add(LessonViewModel("01", "Listeners"))
-                lessonsData.add(LessonViewModel("02", "Intents"))
+                lessonsData.add(LessonViewModel("01", "Listeners", ""))
+                lessonsData.add(LessonViewModel("02", "Intents", ""))
             }
 
             "WebView" -> {
-                lessonsData.add(LessonViewModel("01", "What is a WebView ?"))
-                lessonsData.add(LessonViewModel("02", "How to implement a WebView"))
-                lessonsData.add(LessonViewModel("03", "Why not to implement a WebView"))
+                lessonsData.add(LessonViewModel("01", "What is a WebView ?", ""))
+                lessonsData.add(LessonViewModel("02", "How to implement a WebView", ""))
+                lessonsData.add(LessonViewModel("03", "Why not to implement a WebView", ""))
             }
 
             "Fragments" -> {
-                lessonsData.add(LessonViewModel("01", "What is a fragment ?"))
-                lessonsData.add(LessonViewModel("02", "Fragments lifecycle"))
-                lessonsData.add(LessonViewModel("03", "Add two fragments"))
+                lessonsData.add(LessonViewModel("01", "What is a fragment ?", ""))
+                lessonsData.add(LessonViewModel("02", "Fragments lifecycle", ""))
+                lessonsData.add(LessonViewModel("03", "Add two fragments", ""))
             }
 
             "ViewBinding" -> {
-                lessonsData.add(LessonViewModel("01", "What is ViewBinding ?"))
-                lessonsData.add(LessonViewModel("02", "Why and how to implement it"))
+                lessonsData.add(LessonViewModel("01", "What is ViewBinding ?", ""))
+                lessonsData.add(LessonViewModel("02", "Why and how to implement it", ""))
             }
 
             "Animations" -> {
-                lessonsData.add(LessonViewModel("01", "What are animations ?"))
-                lessonsData.add(LessonViewModel("02", "Common animations"))
-                lessonsData.add(LessonViewModel("03", "Animation or transaction ?"))
-                lessonsData.add(LessonViewModel("04", "XML examples"))
+                lessonsData.add(LessonViewModel("01", "What are animations ?", ""))
+                lessonsData.add(LessonViewModel("02", "Common animations", ""))
+                lessonsData.add(LessonViewModel("03", "Animation or transaction ?", ""))
+                lessonsData.add(LessonViewModel("04", "XML examples", ""))
             }
         }
 
