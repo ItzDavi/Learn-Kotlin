@@ -121,7 +121,7 @@ class LessonsFragment : Fragment() {
                 lessonsData.add(LessonViewModel("01", "What are animations ?",getString(R.string.animations_1_a), getString(R.string.animations_1_b), resources.getDrawable(R.drawable.lesson_animation_1, null)))
                 lessonsData.add(LessonViewModel("02", "Common animations",getString(R.string.animations_2_a), getString(R.string.animations_2_b), resources.getDrawable(R.drawable.lesson_animations_2, null)))
                 lessonsData.add(LessonViewModel("03", "Animation or transaction ?",getString(R.string.animations_3_a), getString(R.string.animations_3_b), resources.getDrawable(R.drawable.lesson_animations_3, null)))
-                lessonsData.add(LessonViewModel("04", "XML examples",getString(R.string.animations_4_a), getString(R.string.animations_4_b), resources.getDrawable(R.drawable.lesson_animations_4)))
+                lessonsData.add(LessonViewModel("04", "XML examples",getString(R.string.animations_4_a), getString(R.string.animations_4_b), resources.getDrawable(R.drawable.lesson_animations_4, null)))
 
             }
         }

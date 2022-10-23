@@ -11,9 +11,9 @@ import android.widget.ScrollView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
-import androidx.core.graphics.drawable.toBitmap
 import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.lifecycleScope
+import com.davidemolo.learnkotlin.MyAnimations
 import com.davidemolo.learnkotlin.R
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -33,7 +33,6 @@ class LessonDialog(private val lessonData: List<LessonViewModel>, private var po
 
         dialog!!.window?.setLayout(width, height)
 
-
         loadLesson(lessonData[position])
     }
 
@@ -49,16 +48,15 @@ class LessonDialog(private val lessonData: List<LessonViewModel>, private var po
         val lessonTitleTextView = dialog!!.findViewById<TextView>(R.id.lesson_textview)
         val lessonParagraph1TextView = dialog!!.findViewById<TextView>(R.id.lesson_text_paragraph1_textview)
         val lessonParagraph2TextView = dialog!!.findViewById<TextView>(R.id.lesson_text_paragraph2_textview)
+        val lessonContentImage = dialog!!.findViewById<ImageView>(R.id.lesson_content_image_view)
 
         nextLessonButton.setOnClickListener {
             dialogScrollView.fullScroll(ScrollView.FOCUS_UP)
 
-            lessonTitleTextView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.fast_fade_out))
-            lessonTitleTextView.visibility = View.INVISIBLE
-            lessonParagraph1TextView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.fast_fade_out))
-            lessonParagraph1TextView.visibility = View.INVISIBLE
-            lessonParagraph2TextView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.fast_fade_out))
-            lessonParagraph2TextView.visibility = View.INVISIBLE
+            MyAnimations.myAnimate(lessonTitleTextView, MyAnimations.fastFadeOut, requireContext(), View.INVISIBLE)
+            MyAnimations.myAnimate(lessonParagraph1TextView, MyAnimations.fastFadeOut, requireContext(), View.INVISIBLE)
+            MyAnimations.myAnimate(lessonParagraph2TextView, MyAnimations.fastFadeOut, requireContext(), View.INVISIBLE)
+            MyAnimations.myAnimate(lessonContentImage, MyAnimations.fastFadeOut, requireContext(), View.INVISIBLE)
 
             currentPos++
             if (currentPos < lessonData.size) {
@@ -66,12 +64,11 @@ class LessonDialog(private val lessonData: List<LessonViewModel>, private var po
                     delay(300)
                     loadLesson(lessonData[currentPos])
 
-                    lessonTitleTextView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.fast_fade_in))
-                    lessonTitleTextView.visibility = View.VISIBLE
-                    lessonParagraph1TextView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.fast_fade_in))
-                    lessonParagraph1TextView.visibility = View.VISIBLE
-                    lessonParagraph2TextView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.fast_fade_in))
-                    lessonParagraph2TextView.visibility = View.VISIBLE
+                    MyAnimations.myAnimate(lessonTitleTextView, MyAnimations.fastFadeIn, requireContext())
+                    MyAnimations.myAnimate(lessonParagraph1TextView, MyAnimations.fastFadeIn, requireContext())
+                    MyAnimations.myAnimate(lessonParagraph2TextView, MyAnimations.fastFadeIn, requireContext())
+                    MyAnimations.myAnimate(lessonContentImage, MyAnimations.fastFadeIn, requireContext())
+
                 }
             } else {
                 Toast.makeText(requireContext(), "Topic completed!", Toast.LENGTH_SHORT).show()
@@ -90,12 +87,9 @@ class LessonDialog(private val lessonData: List<LessonViewModel>, private var po
         val lessonParagraph2TextView = dialog!!.findViewById<TextView>(R.id.lesson_text_paragraph2_textview)
         val lessonContentImage = dialog!!.findViewById<ImageView>(R.id.lesson_content_image_view)
 
-
         lessonTitleTextView.text = lessonData.lessonTitle
         lessonParagraph1TextView.text = lessonData.firstParagraph
         lessonParagraph2TextView.text = lessonData.secondParagraph
         lessonContentImage.setImageDrawable(lessonData.contentImage)
-
-
     }
 }

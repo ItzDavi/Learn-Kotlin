@@ -4,15 +4,11 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.animation.AnimationUtils
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
-import com.davidemolo.learnkotlin.HomeActivity
 import com.davidemolo.learnkotlin.R
-import com.davidemolo.learnkotlin.topics.lessons.LessonViewModel
 import com.davidemolo.learnkotlin.topics.lessons.LessonsFragment
 
 class TopicAdapter(private val mList: List<TopicViewModel>, var context: Context) : RecyclerView.Adapter<TopicAdapter.ViewHolder>() {

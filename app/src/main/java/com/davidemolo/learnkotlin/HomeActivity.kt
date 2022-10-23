@@ -14,7 +14,6 @@ import com.davidemolo.learnkotlin.topics.TopicAdapter
 import com.davidemolo.learnkotlin.topics.TopicViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import javax.net.ssl.SSLParameters
 
 class HomeActivity : AppCompatActivity() {
     private lateinit var binding: ActivityHomeBinding
@@ -29,10 +28,6 @@ class HomeActivity : AppCompatActivity() {
 
         binding.welcomeTextview.typeface = poppinsBold
 
-        val slideInDownAnimation = AnimationUtils.loadAnimation(this, R.anim.slide_in_down)
-        val slideInRightAnimation = AnimationUtils.loadAnimation(this, R.anim.slide_in_right)
-        val slideInUpAnimation = AnimationUtils.loadAnimation(this, R.anim.slide_in_up)
-
         val topicsRecyclerView = binding.topicsRecyclerview
         topicsRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
@@ -40,25 +35,22 @@ class HomeActivity : AppCompatActivity() {
 
         lifecycleScope.launch {
             delay(600)
-            binding.homeCustomAppbar.visibility = View.VISIBLE
-            binding.homeCustomAppbar.startAnimation(slideInDownAnimation)
+            MyAnimations.myAnimate(binding.homeCustomAppbar, MyAnimations.slideInDown, baseContext)
 
             delay(400)
-            binding.lessonsEmptyBackground.visibility = View.VISIBLE
-            binding.lessonsEmptyBackground.startAnimation(slideInUpAnimation)
+            MyAnimations.myAnimate(binding.lessonsEmptyBackground, MyAnimations.slideInUp, baseContext)
 
             delay(300)
-            binding.topicsTextview.visibility = View.VISIBLE
-            binding.topicsTextview.startAnimation(slideInRightAnimation)
+            MyAnimations.myAnimate(binding.topicsTextview, MyAnimations.slideInRight, baseContext)
 
             delay(600)
-            binding.topicsScrollview.visibility = View.VISIBLE
-            binding.topicsScrollview.startAnimation(slideInRightAnimation)
+            MyAnimations.myAnimate(binding.topicsScrollview, MyAnimations.slideInRight, baseContext)
         }
 
         val infoButton = binding.homeInfoImageview
         infoButton.setOnClickListener {
             startActivity(Intent(this, InfoActivity::class.java))
+            overridePendingTransition(R.anim.slide_in_down, R.anim.slide_out_down)
         }
     }
 

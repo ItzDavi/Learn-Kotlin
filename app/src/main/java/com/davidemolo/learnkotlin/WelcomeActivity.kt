@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.view.animation.Animation
 import android.view.animation.AnimationUtils
 import androidx.core.content.res.ResourcesCompat
 import androidx.lifecycle.lifecycleScope
@@ -20,40 +19,5 @@ class WelcomeActivity : AppCompatActivity() {
         binding = ActivityWelcomeBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
-
-        val poppinsRegular = ResourcesCompat.getFont(this, R.font.poppinsregular)
-
-        val slideInDownAnimation = AnimationUtils.loadAnimation(this, R.anim.slide_in_down)
-        val slideInUpAnimation = AnimationUtils.loadAnimation(this, R.anim.slide_in_up)
-        val slideInRightAnimation = AnimationUtils.loadAnimation(this, R.anim.slide_in_right)
-
-        val slideOutUpAnimation = AnimationUtils.loadAnimation(this, R.anim.slide_out_up)
-        val slideOutDownAnimation = AnimationUtils.loadAnimation(this, R.anim.slide_out_down)
-        val slideOutLeftAnimation = AnimationUtils.loadAnimation(this, R.anim.slide_out_left)
-
-        lifecycleScope.launch {
-            binding.kotlinLogoImageview.visibility = View.VISIBLE
-            binding.kotlinLogoImageview.startAnimation(slideInRightAnimation)
-            delay(600)
-            binding.welcomeTextview.typeface = poppinsRegular
-            binding.welcomeTextview.visibility = View.VISIBLE
-            binding.welcomeTextview.startAnimation(slideInDownAnimation)
-            delay(600)
-            binding.startButton.typeface = poppinsRegular
-            binding.startButton.visibility = View.VISIBLE
-            binding.startButton.startAnimation(slideInUpAnimation)
-        }
-
-        binding.startButton.setOnClickListener {
-            val intent = Intent(this, HomeActivity::class.java)
-
-            binding.welcomeTextview.startAnimation(slideOutUpAnimation)
-            binding.startButton.startAnimation(slideOutDownAnimation)
-            binding.kotlinLogoImageview.startAnimation(slideOutLeftAnimation)
-
-            startActivity(intent)
-            overridePendingTransition(R.anim.slide_in_right, R.anim.slide_out_left)
-            finish()
-        }
     }
 }
