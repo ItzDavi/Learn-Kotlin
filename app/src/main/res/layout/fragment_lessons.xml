@@ -65,12 +65,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
+            android:layout_marginBottom="12dp"
             android:backgroundTint="@color/material_a2_blue"
             android:elevation="15dp"
             android:text="Take the quiz!"
+            android:textColor="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/lessons_back_cardview" />
+            app:layout_constraintTop_toBottomOf="@id/lessons_back_cardview"
+            app:layout_constraintVertical_bias="0.951" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
