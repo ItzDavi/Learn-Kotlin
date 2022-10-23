@@ -19,6 +19,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.davidemolo.learnkotlin.databinding.FragmentLessonsBinding
 import com.davidemolo.learnkotlin.R
+import com.davidemolo.learnkotlin.topics.quiz.QuizFragment
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
@@ -45,6 +46,17 @@ class LessonsFragment : Fragment() {
 
         lifecycleScope.launch {
             loadLessons(lessonsRecyclerView, topic)
+        }
+
+        topicQuizButton.setOnClickListener {
+            val quizFragment = QuizFragment()
+            val bundle = Bundle()
+            bundle.putString(TOPIC, topic)
+            quizFragment.arguments = bundle
+            val transaction = parentFragmentManager.beginTransaction()
+            transaction.replace(R.id.lessons_home_fragment, quizFragment)
+            transaction.addToBackStack(null)
+            transaction.commit()
         }
     }
 
