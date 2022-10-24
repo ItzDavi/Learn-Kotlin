@@ -50,9 +50,4 @@ class QuizViewModel (
     fun setAnswered() {
         answered = true
     }
-
-
-
-
-
 }

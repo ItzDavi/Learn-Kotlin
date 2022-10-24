@@ -20,10 +20,7 @@ class QuizFragment : Fragment() {
     private val quizBinding get() = _quizBinding!!
 
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _quizBinding = FragmentQuizBinding.inflate(inflater, container, false)
         return quizBinding.root
     }
@@ -55,7 +52,7 @@ class QuizFragment : Fragment() {
 
         questions.add(
             QuestionViewModel(
-                "What is Kotlin?",
+                "What is Kotlin ?",
                 "A programming language",
                 "A framework",
                 "A library",
@@ -66,12 +63,12 @@ class QuizFragment : Fragment() {
 
         questions.add(
             QuestionViewModel(
-                "What is the name of the Kotlin compiler?",
-                "Kotlin",
-                "Kotlin Compiler",
-                "Kotlin Compiler for JVM",
-                "Kotlin Compiler for Android",
-                "Kotlin Compiler for JVM"
+                "What are data types in Kotlin ?",
+                "Different types of data a variable can store",
+                "Types of Kotlin strings",
+                "Only numbers are types in Kotlin",
+                "Bit, Bytes and Megabytes",
+                "Different types of data a variable can store"
             )
         )
 
@@ -152,14 +149,10 @@ class QuizFragment : Fragment() {
             )
         )
 
-
         questionsRecyclerView.adapter = QuizAdapter(questions, topic)
-
     }
 
-
     companion object {
-
         @JvmStatic
         fun newInstance(topic: String) =
             QuizFragment().apply {
