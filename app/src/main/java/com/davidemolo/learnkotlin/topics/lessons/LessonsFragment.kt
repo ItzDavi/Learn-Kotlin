@@ -13,6 +13,7 @@ import android.view.animation.AnimationUtils
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -49,14 +50,14 @@ class LessonsFragment : Fragment() {
         }
 
         topicQuizButton.setOnClickListener {
-            val quizFragment = QuizFragment()
-            val bundle = Bundle()
-            bundle.putString(TOPIC, topic)
-            quizFragment.arguments = bundle
-            val transaction = parentFragmentManager.beginTransaction()
-            transaction.replace(R.id.lessons_home_fragment, quizFragment)
-            transaction.addToBackStack(null)
-            transaction.commit()
+            val homeActivity = it.context as AppCompatActivity
+            homeActivity.supportFragmentManager
+                .beginTransaction()
+                .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left)
+                .replace(
+                    R.id.lessons_home_fragment,
+                    QuizFragment.newInstance("")
+                ).commitNow()
         }
     }
 
