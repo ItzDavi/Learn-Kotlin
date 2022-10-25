@@ -2,9 +2,10 @@ package com.davidemolo.learnkotlin.topics.quiz
 
 class QuizViewModel (
     val topic : String,
-    private val questions : List<QuestionViewModel>
-) {
-    private var score = 0
+    val questionsNumber: String,
+    val difficulty: String
+    )
+   /* private var score = 0
     var currentQuestion = 0
     var answered = false
 
@@ -49,5 +50,5 @@ class QuizViewModel (
 
     fun setAnswered() {
         answered = true
-    }
-}
+    }*/
+

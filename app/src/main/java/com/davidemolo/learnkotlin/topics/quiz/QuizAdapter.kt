@@ -22,15 +22,11 @@ class QuizAdapter(private val mList: List<QuestionViewModel>, var context: Strin
         holder.answer2TextView.text = item.answer2
         holder.answer3TextView.text = item.answer3
         holder.answer4TextView.text = item.answer4
-
     }
-
 
     override fun getItemCount(): Int {
         return mList.size
     }
-
-
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val questionTextView: TextView = itemView.findViewById(R.id.question_textview)
@@ -38,6 +34,5 @@ class QuizAdapter(private val mList: List<QuestionViewModel>, var context: Strin
         val answer2TextView: TextView = itemView.findViewById(R.id.answer2_button)
         val answer3TextView: TextView = itemView.findViewById(R.id.answer3_button)
         val answer4TextView: TextView = itemView.findViewById(R.id.answer4_button)
-
     }
 }

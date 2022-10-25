@@ -69,7 +69,6 @@ class HomeActivity : AppCompatActivity() {
         topicsData.add(TopicViewModel("ViewBinding", 1, 2, 3, "English"))
         topicsData.add(TopicViewModel("Animations", 2, 4, 3, "English"))
 
-        val adapter = TopicAdapter(topicsData, this)
-        topicsRecyclerView.adapter = adapter
+        topicsRecyclerView.adapter = TopicAdapter(topicsData, this)
     }
 }

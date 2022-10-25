@@ -6,10 +6,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.davidemolo.learnkotlin.R
 import com.davidemolo.learnkotlin.databinding.FragmentQuizBinding
+import com.davidemolo.learnkotlin.topics.TopicViewModel
+import com.davidemolo.learnkotlin.topics.lessons.LessonViewModel
 import kotlinx.coroutines.launch
 
 private const val TOPIC = "topic"
@@ -18,7 +22,6 @@ private var topic = "Kotlin"
 class QuizFragment : Fragment() {
     private var _quizBinding: FragmentQuizBinding? = null
     private val quizBinding get() = _quizBinding!!
-
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _quizBinding = FragmentQuizBinding.inflate(inflater, container, false)
@@ -31,12 +34,21 @@ class QuizFragment : Fragment() {
 
         questionsRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
-        quizBinding.quizTitleTextview.text = topic
-
         lifecycleScope.launch {
-            loadQuestions(questionsRecyclerView, topic)
+            loadQuestions()
         }
 
+        quizBinding.quizTopicTitleTextview.text = topic
+
+        val topicData = loadTopicInfo(topic)
+        val questionsData = loadQuestions()
+
+        "${topicData?.topicDifficulty} / 5".also { quizBinding.quizDifficultyTextview.text = it }
+
+        val startQuizButton = quizBinding.checkAnswersButton
+        startQuizButton.setOnClickListener {
+            QuizDialog(questionsData).show(parentFragmentManager, "QuestionLessonDialog")
+        }
     }
 
     override fun onAttach(context: Context) {
@@ -47,109 +59,252 @@ class QuizFragment : Fragment() {
         }
     }
 
-    private fun loadQuestions(questionsRecyclerView: RecyclerView, topic: String) {
-        val questions = mutableListOf<QuestionViewModel>()
+    private fun loadTopicInfo(topic: String) : TopicViewModel? {
+        var topicData: TopicViewModel ?= null
 
-        questions.add(
-            QuestionViewModel(
-                "What is Kotlin ?",
-                "A programming language",
-                "A framework",
-                "A library",
-                "A compiler",
-                "A programming language"
-            )
-        )
+        when (topic) {
+            "Kotlin" -> {
+                topicData = TopicViewModel("Kotlin", 1, 2, 1, "English")
+            }
 
-        questions.add(
-            QuestionViewModel(
-                "What are data types in Kotlin ?",
-                "Different types of data a variable can store",
-                "Types of Kotlin strings",
-                "Only numbers are types in Kotlin",
-                "Bit, Bytes and Megabytes",
-                "Different types of data a variable can store"
-            )
-        )
+            "Variables" -> {
+                topicData = TopicViewModel("Variables", 2, 3, 1, "English")
+            }
 
-        questions.add(
-            QuestionViewModel(
-                "What is the name of the Kotlin compiler for Android?",
-                "Kotlin",
-                "Kotlin Compiler",
-                "Kotlin Compiler for JVM",
-                "Kotlin Compiler for Android",
-                "Kotlin Compiler for Android"
-            )
-        )
+            "Activities" -> {
+                topicData = TopicViewModel("Activities", 3, 3, 2, "English")
+            }
 
-        questions.add(
-            QuestionViewModel(
-                "What is the name of the Kotlin compiler for JavaScript?",
-                "Kotlin",
-                "Kotlin Compiler",
-                "Kotlin Compiler for JVM",
-                "Kotlin Compiler for Android",
-                "Kotlin Compiler for JavaScript"
-            )
-        )
+            "Conditions" -> {
+                topicData = TopicViewModel("Conditions", 1, 3, 2, "English")
+            }
 
-        questions.add(
-            QuestionViewModel(
-                "What is the name of the Kotlin compiler for Native?",
-                "Kotlin",
-                "Kotlin Compiler",
-                "Kotlin Compiler for JVM",
-                "Kotlin Compiler for Android",
-                "Kotlin Compiler for Native"
-            )
-        )
+            "Loops" -> {
+                topicData = TopicViewModel("Loops", 1, 2, 2, "English")
+            }
 
-        questions.add(
-            QuestionViewModel(
-                "What is the name of the Kotlin compiler for iOS?",
-                "Kotlin",
-                "Kotlin Compiler",
-                "Kotlin Compiler for JVM",
-                "Kotlin Compiler for Android",
-                "Kotlin Compiler for iOS"
-            )
-        )
+            "Layouts" -> {
+                topicData = TopicViewModel("Layouts", 2, 3, 3, "English")
+            }
 
-        questions.add(
-            QuestionViewModel(
-                "What is the name of the Kotlin compiler for Windows?",
-                "Kotlin",
-                "Kotlin Compiler",
-                "Kotlin Compiler for JVM",
-                "Kotlin Compiler for Android",
-                "Kotlin Compiler for Windows"
-            )
-        )
+            "Events" -> {
+                topicData = TopicViewModel("Events", 2, 2, 2, "English")
+            }
 
-        questions.add(
-            QuestionViewModel(
-                "What is the name of the Kotlin compiler for Linux?",
-                "Kotlin",
-                "Kotlin Compiler",
-                "Kotlin Compiler for JVM",
-                "Kotlin Compiler for Android",
-                "Kotlin Compiler for Linux"
-            )
-        )
+            "WebView" -> {
+                topicData = TopicViewModel("WebView", 1, 3, 1, "English")
+            }
 
-        questions.add(
-            QuestionViewModel(
-                "What is the name of the Kotlin compiler for macOS?",
-                "Kotlin",
-                "Kotlin Compiler",
-                "Kotlin Compiler for JVM",
-                "Kotlin Compiler for Android",
-                "Kotlin Compiler for macOS"
-            )
-        )
+            "Fragments" -> {
+                topicData = TopicViewModel("Fragments", 2, 3, 4, "English")
+            }
 
-        questionsRecyclerView.adapter = QuizAdapter(questions, topic)
+            "ViewBinding" -> {
+                topicData = TopicViewModel("ViewBinding", 1, 2, 3, "English")
+            }
+
+            "Animations" -> {
+                topicData = TopicViewModel("Animations", 2, 4, 3, "English")
+            }
+        }
+
+        return topicData
+    }
+
+    private fun loadQuestions() : ArrayList<QuestionViewModel> {
+        val questions = ArrayList<QuestionViewModel>()
+
+        when (topic) {
+            "Kotlin" -> {
+                questions.add(QuestionViewModel(
+                        "What is Kotlin ?",
+                        "A programming language",
+                        "A framework",
+                        "A library",
+                        "A compiler",
+                        "A programming language"))
+
+                questions.add(QuestionViewModel(
+                        "What are data types in Kotlin ?",
+                        "Different types of data a variable can store",
+                        "Types of Kotlin strings",
+                        "Only numbers are types in Kotlin",
+                        "Bit, Bytes and Megabytes",
+                        "Different types of data a variable can store"))
+            }
+            "Variables" -> {
+                questions.add(QuestionViewModel(
+                    "What is Kotlin ?",
+                    "A programming language",
+                    "A framework",
+                    "A library",
+                    "A compiler",
+                    "A programming language"))
+
+                questions.add(QuestionViewModel(
+                    "What are data types in Kotlin ?",
+                    "Different types of data a variable can store",
+                    "Types of Kotlin strings",
+                    "Only numbers are types in Kotlin",
+                    "Bit, Bytes and Megabytes",
+                    "Different types of data a variable can store"))
+            }
+            "Activities" -> {
+                questions.add(QuestionViewModel(
+                    "What is Kotlin ?",
+                    "A programming language",
+                    "A framework",
+                    "A library",
+                    "A compiler",
+                    "A programming language"))
+
+                questions.add(QuestionViewModel(
+                    "What are data types in Kotlin ?",
+                    "Different types of data a variable can store",
+                    "Types of Kotlin strings",
+                    "Only numbers are types in Kotlin",
+                    "Bit, Bytes and Megabytes",
+                    "Different types of data a variable can store"))
+            }
+            "Conditions" -> {
+                questions.add(QuestionViewModel(
+                    "What is Kotlin ?",
+                    "A programming language",
+                    "A framework",
+                    "A library",
+                    "A compiler",
+                    "A programming language"))
+
+                questions.add(QuestionViewModel(
+                    "What are data types in Kotlin ?",
+                    "Different types of data a variable can store",
+                    "Types of Kotlin strings",
+                    "Only numbers are types in Kotlin",
+                    "Bit, Bytes and Megabytes",
+                    "Different types of data a variable can store"))
+            }
+            "Loops" -> {
+                questions.add(QuestionViewModel(
+                    "What is Kotlin ?",
+                    "A programming language",
+                    "A framework",
+                    "A library",
+                    "A compiler",
+                    "A programming language"))
+
+                questions.add(QuestionViewModel(
+                    "What are data types in Kotlin ?",
+                    "Different types of data a variable can store",
+                    "Types of Kotlin strings",
+                    "Only numbers are types in Kotlin",
+                    "Bit, Bytes and Megabytes",
+                    "Different types of data a variable can store"))
+            }
+            "Layout" -> {
+                questions.add(QuestionViewModel(
+                    "What is Kotlin ?",
+                    "A programming language",
+                    "A framework",
+                    "A library",
+                    "A compiler",
+                    "A programming language"))
+
+                questions.add(QuestionViewModel(
+                    "What are data types in Kotlin ?",
+                    "Different types of data a variable can store",
+                    "Types of Kotlin strings",
+                    "Only numbers are types in Kotlin",
+                    "Bit, Bytes and Megabytes",
+                    "Different types of data a variable can store"))
+            }
+            "Events" -> {
+                questions.add(QuestionViewModel(
+                    "What is Kotlin ?",
+                    "A programming language",
+                    "A framework",
+                    "A library",
+                    "A compiler",
+                    "A programming language"))
+
+                questions.add(QuestionViewModel(
+                    "What are data types in Kotlin ?",
+                    "Different types of data a variable can store",
+                    "Types of Kotlin strings",
+                    "Only numbers are types in Kotlin",
+                    "Bit, Bytes and Megabytes",
+                    "Different types of data a variable can store"))
+            }
+            "WebView" -> {
+                questions.add(QuestionViewModel(
+                    "What is Kotlin ?",
+                    "A programming language",
+                    "A framework",
+                    "A library",
+                    "A compiler",
+                    "A programming language"))
+
+                questions.add(QuestionViewModel(
+                    "What are data types in Kotlin ?",
+                    "Different types of data a variable can store",
+                    "Types of Kotlin strings",
+                    "Only numbers are types in Kotlin",
+                    "Bit, Bytes and Megabytes",
+                    "Different types of data a variable can store"))
+            }
+            "Fragments" -> {
+                questions.add(QuestionViewModel(
+                    "What is Kotlin ?",
+                    "A programming language",
+                    "A framework",
+                    "A library",
+                    "A compiler",
+                    "A programming language"))
+
+                questions.add(QuestionViewModel(
+                    "What are data types in Kotlin ?",
+                    "Different types of data a variable can store",
+                    "Types of Kotlin strings",
+                    "Only numbers are types in Kotlin",
+                    "Bit, Bytes and Megabytes",
+                    "Different types of data a variable can store"))
+            }
+            "ViewBinding" -> {
+                questions.add(QuestionViewModel(
+                    "What is Kotlin ?",
+                    "A programming language",
+                    "A framework",
+                    "A library",
+                    "A compiler",
+                    "A programming language"))
+
+                questions.add(QuestionViewModel(
+                    "What are data types in Kotlin ?",
+                    "Different types of data a variable can store",
+                    "Types of Kotlin strings",
+                    "Only numbers are types in Kotlin",
+                    "Bit, Bytes and Megabytes",
+                    "Different types of data a variable can store"))
+            }
+            "Animations" -> {
+                questions.add(QuestionViewModel(
+                    "What is Kotlin ?",
+                    "A programming language",
+                    "A framework",
+                    "A library",
+                    "A compiler",
+                    "A programming language"))
+
+                questions.add(QuestionViewModel(
+                    "What are data types in Kotlin ?",
+                    "Different types of data a variable can store",
+                    "Types of Kotlin strings",
+                    "Only numbers are types in Kotlin",
+                    "Bit, Bytes and Megabytes",
+                    "Different types of data a variable can store"))
+            }
+        }
+
+        return questions
     }
 
     companion object {
@@ -157,7 +312,7 @@ class QuizFragment : Fragment() {
         fun newInstance(topic: String) =
             QuizFragment().apply {
                 arguments = Bundle().apply {
-                   putString(TOPIC, topic)
+                    putString(TOPIC, topic)
                 }
             }
     }
