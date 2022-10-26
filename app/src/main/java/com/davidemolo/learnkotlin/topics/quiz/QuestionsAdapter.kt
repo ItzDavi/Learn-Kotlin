@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.davidemolo.learnkotlin.R
 
@@ -31,20 +32,11 @@ class QuestionsAdapter(private val mList: List<QuestionViewModel>, var context: 
         return mList.size
     }
 
-
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val question: TextView = itemView.findViewById(R.id.question_textview)
         val answer1RadioButton : RadioButton = itemView.findViewById(R.id.answer1_button)
         val answer2RadioButton : RadioButton = itemView.findViewById(R.id.answer2_button)
         val answer3RadioButton : RadioButton = itemView.findViewById(R.id.answer3_button)
         val answer4RadioButton : RadioButton = itemView.findViewById(R.id.answer4_button)
-    }
-
-    companion object {
-        fun getCheckedAnswer(radioGroup: RadioGroup) : String {
-            val checked = radioGroup.checkedRadioButtonId
-
-            return checked.toString()
-        }
     }
 }

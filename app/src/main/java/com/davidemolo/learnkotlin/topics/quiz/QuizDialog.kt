@@ -1,11 +1,13 @@
 package com.davidemolo.learnkotlin.topics.quiz
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.RadioButton
+import android.widget.RadioGroup
 import android.widget.Toast
 import androidx.appcompat.widget.AppCompatButton
 import androidx.fragment.app.DialogFragment
@@ -36,21 +38,30 @@ class QuizDialog(private val quizData: ArrayList<QuestionViewModel>) : DialogFra
 
         val quizRecyclerView: RecyclerView = dialog!!.findViewById(R.id.questions_recyclerview)
         quizRecyclerView.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.VERTICAL, false)
-        loadQuiz(quizRecyclerView)
+
+        val quizAdapter = QuestionsAdapter(quizData, requireContext())
+        quizRecyclerView.adapter = quizAdapter
 
         val checkAnswersButton: AppCompatButton = dialog!!.findViewById(R.id.questions_submit_button)
         checkAnswersButton.setOnClickListener {
-            Toast.makeText(requireContext(), "Check answer", Toast.LENGTH_SHORT).show()
+
         }
     }
 
-    private fun loadQuiz(recyclerView: RecyclerView) {
-        recyclerView.adapter = QuestionsAdapter(quizData, requireContext())
-    }
+    private fun checkAnswers() : Int {
+        val radioGroup: RadioGroup = dialog!!.findViewById(R.id.answers_radiogroup)
+        var errors = 0
 
-    companion object {
-        fun checkAnswers(radioButton: RadioButton) {
+        for (question in quizData.indices) {
+            val checkedID = radioGroup.checkedRadioButtonId
 
+            val radioButton: RadioButton = dialog!!.findViewById(checkedID)
+
+            if (radioButton.text != quizData[question].correctAnswer) {
+                errors += 1
+            }
         }
+
+        return errors
     }
 }
