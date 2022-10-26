@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="15dp"
@@ -14,7 +13,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:fontFamily="@font/poppinsregular"
+        android:fontFamily="@font/poppinsbold"
         android:text="Android Studio is produced by which company?"
         android:textColor="@color/white"
         android:textSize="20sp"
@@ -31,52 +30,48 @@
         app:layout_constraintTop_toBottomOf="@+id/question_textview"
         app:srcCompat="@drawable/lesson_events_2" />
 
-    <TableLayout
-        android:layout_width="wrap_content"
-        android:layout_height="100dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView">
+    <RadioGroup
+        android:id="@+id/answers_radiogroup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/imageView">
 
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent">
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/answer1_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Answer One"
+            android:fontFamily="@font/poppinsregular"
+            android:textColor="@color/white"
+            app:buttonTint="@color/white"/>
 
-            <RadioButton
-                android:id="@+id/answer1_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="RadioButton"
-                android:textColor="@color/white" />
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/answer2_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Answer Two"
+            android:fontFamily="@font/poppinsregular"
+            android:textColor="@color/white"
+            app:buttonTint="@color/white"/>
 
-            <RadioButton
-                android:id="@+id/answer2_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="RadioButton"
-                android:textColor="@color/white" />
-        </TableRow>
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/answer3_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Answer Three"
+            android:fontFamily="@font/poppinsregular"
+            android:textColor="@color/white"
+            app:buttonTint="@color/white"/>
 
-        <TableRow
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent">
+        <com.google.android.material.radiobutton.MaterialRadioButton
+            android:id="@+id/answer4_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Answer Four"
+            android:fontFamily="@font/poppinsregular"
+            android:textColor="@color/white"
+            app:buttonTint="@color/white"/>
 
-            <RadioButton
-                android:id="@+id/answer3_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="RadioButton"
-                android:textColor="@color/white" />
+    </RadioGroup>
 
-            <RadioButton
-                android:id="@+id/answer4_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="RadioButton"
-                android:textColor="@color/white" />
-        </TableRow>
-
-    </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
