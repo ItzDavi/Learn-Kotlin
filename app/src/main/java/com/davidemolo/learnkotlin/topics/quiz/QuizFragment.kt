@@ -30,9 +30,6 @@ class QuizFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val questionsRecyclerView = quizBinding.questionsRecyclerview
-
-        questionsRecyclerView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
 
         lifecycleScope.launch {
             loadQuestions()
@@ -131,6 +128,22 @@ class QuizFragment : Fragment() {
                         "Only numbers are types in Kotlin",
                         "Bit, Bytes and Megabytes",
                         "Different types of data a variable can store"))
+
+                questions.add(QuestionViewModel(
+                    "What is Kotlin ?",
+                    "A programming language",
+                    "A framework",
+                    "A library",
+                    "A compiler",
+                    "A programming language"))
+
+                questions.add(QuestionViewModel(
+                    "What are data types in Kotlin ?",
+                    "Different types of data a variable can store",
+                    "Types of Kotlin strings",
+                    "Only numbers are types in Kotlin",
+                    "Bit, Bytes and Megabytes",
+                    "Different types of data a variable can store"))
             }
             "Variables" -> {
                 questions.add(QuestionViewModel(
