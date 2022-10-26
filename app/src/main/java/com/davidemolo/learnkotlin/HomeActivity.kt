@@ -2,8 +2,6 @@ package com.davidemolo.learnkotlin
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
-import android.view.animation.AnimationUtils
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.res.ResourcesCompat
 import androidx.lifecycle.lifecycleScope

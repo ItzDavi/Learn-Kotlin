@@ -7,7 +7,6 @@ import android.view.animation.AnimationUtils
 class MyAnimations {
 
     companion object {
-        //Costanti da usare
         const val slideInRight = R.anim.slide_in_right
         const val slideInUp = R.anim.slide_in_up
         const val slideInDown = R.anim.slide_in_down
@@ -20,23 +19,14 @@ class MyAnimations {
             val anim = AnimationUtils.loadAnimation(context, animation)
             view.startAnimation(anim)
 
-            // Se la view non si vede, mettila visibile
-            if (view.visibility == View.GONE || view.visibility == View.INVISIBLE) {
-                view.visibility = View.VISIBLE
+            //Change to VISIBLE
+            if (view.visibility == View.GONE || view.visibility == View.INVISIBLE) view.visibility = View.VISIBLE
 
-            // Se le view si vede, ma deve tornare INVISIBILE
-            // (es. LessonDialog è l'unico file che richiede INVISIBLE anziché GONE perché sennò si bugga)
-            // Qua uso "visibility" passata nei parametri così da capire se deve tornare INVISBILE o GONE
-            } else if (view.visibility == View.VISIBLE && visibility == View.INVISIBLE) {
-                view.visibility = View.INVISIBLE
+            //If it is VISIBLE and it was INVISIBLE before, set to INVISIBLE
+            else if (view.visibility == View.VISIBLE && visibility == View.INVISIBLE) view.visibility = View.INVISIBLE
 
-            // Parte due del commento sopra
-            } else if (view.visibility == View.VISIBLE && visibility == View.GONE) {
-                view.visibility = View.GONE
-            }
-            // P.S. visibility è nullable ed è inizializzato a null, cosi non si deve per forza specificare
-            // nelle varie activity il parametro "visibility" (viene usato solo una volta tipo nel LessonDialog con i testi)
-            // !!! Quando hai letto e hai capito cosa fa sta roba cancella pure i commenti <3
+            //If it is VISIBLE and it was GONE before, set to GONE
+            else if (view.visibility == View.VISIBLE && visibility == View.GONE) view.visibility = View.GONE
         }
     }
 }
