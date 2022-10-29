@@ -44,24 +44,8 @@ class QuizDialog(private val quizData: ArrayList<QuestionViewModel>) : DialogFra
 
         val checkAnswersButton: AppCompatButton = dialog!!.findViewById(R.id.questions_submit_button)
         checkAnswersButton.setOnClickListener {
-
+            QuizCompletedDialog().show(parentFragmentManager, "QuizCompletedDialog")
+            dialog!!.dismiss()
         }
-    }
-
-    private fun checkAnswers() : Int {
-        val radioGroup: RadioGroup = dialog!!.findViewById(R.id.answers_radiogroup)
-        var errors = 0
-
-        for (question in quizData.indices) {
-            val checkedID = radioGroup.checkedRadioButtonId
-
-            val radioButton: RadioButton = dialog!!.findViewById(checkedID)
-
-            if (radioButton.text != quizData[question].correctAnswer) {
-                errors += 1
-            }
-        }
-
-        return errors
     }
 }

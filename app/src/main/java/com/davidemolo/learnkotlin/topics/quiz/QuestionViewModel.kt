@@ -10,4 +10,4 @@ class QuestionViewModel (
     val answer4: String,
     val correctAnswer: String
 
-) : ViewModel()
+)
