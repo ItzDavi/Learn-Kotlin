@@ -15,12 +15,12 @@ class TopicAdapter(private val mList: List<TopicViewModel>, var context: Context
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.topic_cardview_layout, parent, false)
-
         return ViewHolder(view)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = mList[position]
+        val homeActivity = context as AppCompatActivity
 
         holder.topicTitleTextView.text = item.topicTitle
         "${item.topicTime} Hours".also { holder.topicTimeTextView.text = it }
@@ -29,14 +29,13 @@ class TopicAdapter(private val mList: List<TopicViewModel>, var context: Context
         holder.topicLanguageTextView.text = item.topicLanguage
 
         holder.topicCardView.setOnClickListener {
-            val homeActivity = it.context as AppCompatActivity
             homeActivity.supportFragmentManager
                 .beginTransaction()
                 .setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left)
                 .replace(
                     R.id.lessons_home_fragment,
-                    LessonsFragment.newInstance(holder.topicTitleTextView.text.toString())
-                ).commitNow()
+                    LessonsFragment.newInstance(holder.topicTitleTextView.text.toString()))
+                .commitNow()
         }
     }
 
