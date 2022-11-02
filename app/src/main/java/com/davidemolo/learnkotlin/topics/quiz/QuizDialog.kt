@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
+import android.widget.ImageView
 import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.Toast
@@ -41,6 +42,11 @@ class QuizDialog(private val quizData: ArrayList<QuestionViewModel>) : DialogFra
 
         val quizAdapter = QuestionsAdapter(quizData, requireContext())
         quizRecyclerView.adapter = quizAdapter
+
+        val backButton: ImageView = dialog!!.findViewById(R.id.back_button_imageview)
+        backButton.setOnClickListener {
+            dialog!!.dismiss()
+        }
 
         val checkAnswersButton: AppCompatButton = dialog!!.findViewById(R.id.questions_submit_button)
         checkAnswersButton.setOnClickListener {
